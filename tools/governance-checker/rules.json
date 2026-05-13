@@ -1,0 +1,58 @@
+{
+  "rules": [
+    {
+      "ruleId": "ARC101",
+      "severity": "ERROR",
+      "targetContains": "backend",
+      "fileNameContains": "Controller",
+      "containsText": "Sum(",
+      "message": "Бізнес-логіка не повинна виконуватись у контролері.",
+      "recommendation": "Винесіть обчислення в Application Service."
+    },
+    {
+      "ruleId": "DEP201",
+      "severity": "ERROR",
+      "targetContains": "backend",
+      "fileNameContains": "Domain",
+      "containsText": "Infrastructure",
+      "message": "Domain-шар не повинен залежати від Infrastructure.",
+      "recommendation": "Видаліть using Infrastructure і використовуйте інверсію залежностей (абстракції)."
+    },
+    {
+      "ruleId": "UI301",
+      "severity": "WARNING",
+      "targetContains": "frontend",
+      "fileNameContains": "Page",
+      "containsText": "fetch(",
+      "message": "UI-компонент викликає API напряму.",
+      "recommendation": "Використайте state/api-шар для доступу до HTTP."
+    },
+    {
+      "ruleId": "SEC401",
+      "severity": "ERROR",
+      "targetContains": "frontend",
+      "fileNameContains": "api",
+      "containsText": "token = \"",
+      "message": "Знайдено захардкоджений токен або пароль.",
+      "recommendation": "Винесіть секретні дані у змінні середовища (.env)."
+    },
+    {
+      "ruleId": "LOG301",
+      "severity": "WARNING",
+      "targetContains": "frontend",
+      "fileNameContains": ".tsx",
+      "containsText": "console.log(",
+      "message": "Знайдено console.log у production-коді.",
+      "recommendation": "Видаліть console.log або замініть на спеціалізований логер."
+    },
+    {
+      "ruleId": "DTO701",
+      "severity": "WARNING",
+      "targetContains": "backend",
+      "fileNameContains": "Controller",
+      "containsText": "ActionResult<Student>",
+      "message": "API повертає доменну сутність замість DTO.",
+      "recommendation": "Створіть StudentDto та повертайте його з контролера."
+    }
+  ]
+}

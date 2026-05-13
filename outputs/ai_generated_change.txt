@@ -1,0 +1,18 @@
+Snapshot: snapshots/ai_generated_change
+Files scanned: 6
+--------------------------------------------------------------------------------
+[ERROR] ARC101 :: backend/Controllers/StudentController.cs
+  Message: Бізнес-логіка не повинна виконуватись у контролері.
+  Recommendation: Винесіть обчислення в Application Service.
+[ERROR] SEC401 :: frontend/api/studentApi.ts
+  Message: Знайдено захардкоджений токен або пароль.
+  Recommendation: Винесіть секретні дані у змінні середовища (.env).
+[WARNING] UI301 :: frontend/pages/StudentPage.tsx
+  Message: UI-компонент викликає API напряму.
+  Recommendation: Використайте state/api-шар для доступу до HTTP.
+[WARNING] LOG301 :: frontend/pages/StudentPage.tsx
+  Message: Знайдено console.log у production-коді.
+  Recommendation: Видаліть console.log або замініть на спеціалізований логер.
+--------------------------------------------------------------------------------
+Totals -> ERROR: 2, WARNING: 2
+Gate decision: FAIL
